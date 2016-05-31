@@ -21,6 +21,9 @@ class Money:
         else:
             return "Invalid Input"
 
+    def __str__(self):
+        return "{}".format(self.currency_type)
+
     def __eq__(self, other):
         return self.currency_type == other.currency_type
 
@@ -28,7 +31,7 @@ class Money:
         return self.currency_type != other.currency_type
 
     def __add__(self, other):
-        return self.currency_type + other.currency_type
+        return Money(self.currency_type + other.currency_type, "usd")
 
     def __mul__(self, other):
         return self.currency_type * other.currency_type
@@ -57,6 +60,10 @@ addition = usd + eur
 multiplication = usd * btc
 subtraction = jpy - eur
 
+print("USD to EUR: $", eur)
+print("USD to JPY: $", jpy)
+print("USD to BTC: $", btc)
+
 print("USD == EUR: ", usd == eur)
 print("BTC != EUR: ", btc != eur)
 print("JPY <= EUR: ", jpy <= eur)
@@ -68,4 +75,4 @@ print("JPY - EUR: ", subtraction)
 print("USD * BTC: ", multiplication)
 print("BTC + EUR: ", btc + eur)
 
-# print(Money(100.00, "usd") + Money(56.32, "eur") + Money(1.2, "btc") + Money(8, "jpy"))
+print("String addition", (Money(100.00, "usd") + Money(56.32, "eur") + Money(1.2, "btc") + Money(8, "jpy")))
