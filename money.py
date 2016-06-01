@@ -13,11 +13,11 @@ class Money:
         if self.currency.lower() == self.usd:
             return self.amount
         elif self.currency.lower() == self.eur:
-            return self.amount * .9
+            return self.amount * 1.1
         elif self.currency.lower() == self.jpy:
-            return self.amount * 110.65
+            return self.amount * 0.011065
         elif self.currency.lower() == self.btc:
-            return self.amount * .0019
+            return self.amount * 531.40
         else:
             return "Invalid Input"
 
@@ -75,4 +75,4 @@ print("JPY - EUR: ", subtraction)
 print("USD * BTC: ", multiplication)
 print("BTC + EUR: ", btc + eur)
 
-print("String addition", (Money(100.00, "usd") + Money(56.32, "eur") + Money(1.2, "btc") + Money(8, "jpy")))
+print("String addition: $", (Money(100.00, "usd") + Money(56.32, "eur") + Money(1.2, "btc") + Money(8, "jpy")))
